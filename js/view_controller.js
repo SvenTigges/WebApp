@@ -3,7 +3,7 @@
 
 /* Der Plan
     Einlesen Daten von Webseite :: check! 
-	Check Daten :: 
+	Check Daten :: chek!
     Btn. Trigger :: check!
     Business-Logic (Alter --> Getränk) :: check! 
     Bild austauschen :: check! 
@@ -21,13 +21,33 @@ let btn = document.getElementById("trigBtn");
 btn.addEventListener("click",actOnClick);
 
 // Trigger - Input
-
+let field = document.getElementsByName("eingabe")[0]; 
+field.addEventListener("input",isInputValid);
 
 // Event-Dispatcher
 function actOnClick() {
-    contoller();
+    
+    if (isInputValid()) {
+        contoller();
+    } else {
+        ausgabe("Input nicht korrekt!")
+    }
+    
+    
 }
 // Check auf korrekte Eingaben ...
+function isInputValid() {
+    let inputStr = field.value;
+    let patt = /^[0-9]{1,3}$/g; 
+    let cond = patt.test(inputStr); 
+    
+    if (!cond) {
+        field.value = "";
+        updateImg(data.default.bev); 
+    }
+    
+    return cond;
+}
 
 // Modul Eingabe | Test:
 //ausgabe(getInput());
@@ -36,11 +56,6 @@ function getInput() {
     let age = parseInt(inputField.value); 
     return age;
 }
-
-
-
-
-
 
 // Modul: Business-Logic (Mapping) | Test:
 // ausgabe(checkAge(2));
