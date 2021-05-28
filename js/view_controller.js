@@ -5,11 +5,16 @@
     Einlesen Daten von Webseite :: 
 	Check Daten :: 
     Btn. Trigger :: 
-    Business-Logic (Alter --> Getränk) :: 
+    Business-Logic (Alter --> Getränk) :: check! 
     Bild austauschen :: check! 
 */
 
 // Modul Ablaufsteuerung | Test:
+contoller();
+function contoller() {
+    ausgabe(updateImg(checkAge())); 
+}
+
 
 // Trigger - Btn 
 // Trigger - Input
@@ -21,13 +26,33 @@
 
 // Modul Eingabe | Test:
 
+
+
+
+
+
+
 // Modul: Business-Logic (Mapping) | Test:
-ausgabe(checkAge());
-function checkAge(params) {
-    return "test"; 
+// ausgabe(checkAge(2));
+// ausgabe(checkAge(6));
+// ausgabe(checkAge(15));
+// ausgabe(checkAge(20));
+// ausgabe(checkAge(132));
+// ausgabe(checkAge());
+function checkAge(age) {
+    switch (true) {
+        case (age> 0 && age< 5): // && und Verküupung 
+            return "milch";         
+        case (age> 6 && age< 12):
+            return "saft";
+        case (age> 13 && age< 17):
+            return "cola";
+        case (age> 18) && ( age <=130):
+            return "wein";
+        default:
+            return "tee";
+    }
 }
-
-
 
 
 // Modul: Bild aktualisieren | Test:
@@ -37,8 +62,6 @@ function updateImg(imgName) {
     img .src = "./bilder/" + imgName +  ".jpg";
     return imgName;  
 }
-
-
 
 
 //Modul: Konsolenausgabe --> Test:
