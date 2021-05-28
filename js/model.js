@@ -1,6 +1,6 @@
 /* model (Daten/Logik) */
 
-let data= {
+let data = {
     milk:{lower:0, upper:5, bev:"milch"},
     juice:{lower:6, upper:12, bev:"saft"},
     cola:{lower:13, upper:20, bev:"cola"},
@@ -8,6 +8,6 @@ let data= {
     default:{bev:"tee"}
 }
 
-let gui = {
-        img:{path: "./bilder/", ext:"jpg"}
-}
+let gui =   {
+            img:{path:"./bilder/", ext:".jpg"} 
+        }
